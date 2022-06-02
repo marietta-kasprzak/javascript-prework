@@ -1,4 +1,4 @@
-function playGame (playerInput) {
+{function playGame (playerInput) {
     function getMoveName(argMoveId){
         if(argMoveId == 1){
           return 'kamień';
@@ -13,21 +13,18 @@ function playGame (playerInput) {
         return 'nieznany ruch';
       }
       
-    let randomNumber = Math.floor(Math.random() * 3 + 1);
+    const randomNumber = Math.floor(Math.random() * 3 + 1);
+        computerMove = getMoveName(randomNumber);
+        playerMove = getMoveName(playerInput);
     
     console.log('Wylosowana liczba to: ' + randomNumber);
     
-    let computerMove = getMoveName(randomNumber);
-    
-    
     printMessage('Mój ruch to: ' + computerMove);
-    
-    let playerMove = getMoveName(playerInput);
     
     printMessage('Twój ruch to: ' + playerMove);
     
     
-    function displayResult(argComputerMove, argPlayerMove) {
+   function displayResult(argComputerMove, argPlayerMove) {
         console.log ('start')
     
         if (argComputerMove == 'kamień' && argPlayerMove == 'papier') {
@@ -50,17 +47,18 @@ function playGame (playerInput) {
     displayResult (computerMove, playerMove)
 }
 
-let rockButton = document.querySelector('#kamien')
+const rockButton = document.querySelector('#kamien')
 rockButton.addEventListener('click', function(){
     playGame(1)
 })
 
-let papierButton = document.querySelector('#papier')
+const papierButton = document.querySelector('#papier')
 papierButton.addEventListener('click', function(){
     playGame(2)
 })
 
-let scissorsButton = document.querySelector('#nozyce')
+const scissorsButton = document.querySelector('#nozyce')
 scissorsButton.addEventListener('click', function(){
     playGame(3)
 })
+}
